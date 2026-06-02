@@ -8,41 +8,67 @@ on same level these files are present :
 
 cloud(dir),          | demofile.txt, | devops(dir),                          | myfile.txt,  |  newfile.txt
 (devops.txt- copied) |               | (newfile.txt- cp newfile.txt devops/) |              |
- code written from   |               | (devops.txt- touch devops.txt)        |              |
-parent folder:
+,code written from   |               | (devops.txt- touch devops.txt)        |              |
+parent folder:       |               | (cloud -copied)
 cp devops/devops.txt cloud/
 
 
+NEXT 
 
-
-
-
-
-Folder ke andar ki cheeze copy krni h toh:
-user $ ls
-user $ pwd
-/tmp/user/home
-user $ 
-mkdir devops/
+devops
+user $ cp -r cloud/ devops/  (whole folder cloud copied recursively in devops frpm PARENT FOLDER)
 user $ cd devops/
-user $ pwd
-/tmp/user/home/devops
-user $ touch dev.txt
-user $ ld
-sh: ld: not found
 user $ ls
-dev.txt
-user $ cd ..
-user $ ls
+
+
+
+cloud (dir)     |      devops.txt       |      newfile.txt
+devops.txt                                                
+
+
+
+$ pwd
 devops
-user $ mkdir cld/
-user $ ks
-sh: ks: not found
-user $ ls
-cld
-devops
-user $ cp -r devops/ cld/  (whole folder devops copied recursively in cld)
-user $ cd cld/
-user $ ls
-devops
-user $ 
+
+$cd ..
+$ls
+cloud (dir)     demofile.txt        devops (dir)        myfile.txt      newfile.txt
+
+
+
+
+/ErLiu
+
+
+$ cd cloud/
+$ ls
+devops.txt
+$ cd ..
+$ cd devops/
+$ ls
+cloud(dir)      devops.txt       newfile.txt
+
+
+Now from here (inside devops dir) I have to "move" newfile.txt to "main" cloud(dir)
+$ mv newfile.txt cloud/  (WRONG, move to MAIN DIR)
+
+MAIN CLOUD DIR
+$ mv newfile.txt .. cloud/ (WRONG, what " .." ?)
+
+ ../ FOLDER (../ piche waale folder(PARENT FOLDER), mein jo cloud folder hai)
+$ mv newfile.txt ../cloud/
+
+
+                                          PARENT FOLDER
+
+cloud(dir),                 | demofile.txt, | devops(dir),                          | myfile.txt,  |  newfile.txt
+(devops.txt- copied)        |               | (newfile.txt- cp newfile.txt devops/) |              |
+,code written from          |               | (devops.txt- touch devops.txt)        |              |
+parent folder:              |               | (cloud -copied)
+cp devops/devops.txt cloud/ |               | 
+
+(newfile.txt)               |               | (mv newfile.txt ../cloud/)            |              |
+                                            This file is removed from here.
+
+
+Rename    , (stage changes???)                                   
