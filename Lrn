@@ -73,7 +73,37 @@ cp devops/devops.txt cloud/ |               |
 
 Rename    , (stage changes???)   
 mv devops/ linux_for_devops (linux_for_devops ke piche slash nhi laga rhe hum , why?)
-isme toh lagaya gai cloud kr piche slach , as that means folder: $ mv newfile.txt ../cloud/
+isme toh lagaya gai cloud kr piche slash , as that means folder: $ mv newfile.txt ../cloud/
 
 
 
+/SanLiu
+
+
+user$ touch myfile.txt
+user$ cat myfile.txt
+user$ echo "this is a file."
+this is a file.
+user$ echo "this is a file." > myfile.txt
+user$ cat myfile.txt
+this is a file.
+user$ wc myfile.txt
+ 1  4 16 myfile.txt
+user$ echo "this hat" > myfile.txt
+user$ cat myfile.txt
+this hat
+user$ wc myfile.txt
+1 2 9 myfile.txt
+user$ cut -b 2 myfile.txt
+h
+user$ cut -b 1 myfile.txt
+t
+user$ cut -b 1.5 myfile.txt
+cut: invalid byte/character position ‘.5’
+Try 'cut --help' for more information.
+user$ cut -b 5 myfile.txt
+(empty sapce)
+user$ cut -b 1-6 myfile.txt
+this h
+
+ 
