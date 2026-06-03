@@ -215,4 +215,12 @@ user$ cut -b 5 myfile.txt
 user$ cut -b 1-6 myfile.txt
 this h
 
+
+
+QUES
+I have updated a file in the main owner repo why is the forked repo not reflectng those updates in github codespaces?
+ANS
+Go to forked repo then Sync Fork!
+QUES: repo is synced but the codespaces are not?
+ANS: ans in terminal_log.txt
  
