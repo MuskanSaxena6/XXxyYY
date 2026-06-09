@@ -495,3 +495,126 @@ sudo: shutdwon: command not found
 
 
 /JiuLiu
+ pwd
+/workspaces/XXxyYY
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ useraddjeth
+bash: useraddjeth: command not found
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ useradd jeth
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+
+
+
+
+I have crete a user name 'YY'
+pass:123
+now how to remove this user and how t get the location of this, as I can't find the location using 
+$ which YY
+so now what to do?
+before i created a pasword and i tried to 
+$su YY
+it asked me for a password , how can it have a password when i have not created it yet? 
+
+
+
+
+
+ $ script terminal_log.txt
+Script started, output log file is 'terminal_log.txt'.
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ sudo useradd YY
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ ls
+LICENSE  Lrn  README.md  terminal_log.txt  ubuntu
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ which YY
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ cd ..
+@MuskanSaxena6 ➜ /workspaces $ which YY
+@MuskanSaxena6 ➜ /workspaces $ which docker
+/usr/bin/docker
+@MuskanSaxena6 ➜ /workspaces $ ls
+XXxyYY
+@MuskanSaxena6 ➜ /workspaces $ sudo useradd -m YY
+useradd: user 'YY' already exists
+
+
+
+
+su YY
+Password: 
+su: Authentication failure
+@MuskanSaxena6 ➜ /workspaces $ su XXxyYY
+su: user XXxyYY does not exist or the user entry does not contain all the required fields
+@MuskanSaxena6 ➜ /workspaces $ cd XXxyYY
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ sudo passwd YY
+New password: 
+Retype new password: 
+passwd: password updated successfully
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ su YY
+Password: 
+$ exit
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ ls
+LICENSE  Lrn  README.md  terminal_log.txt  ubuntu
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ cd ..
+@MuskanSaxena6 ➜ /workspaces $ ls
+XXxyYY
+
+
+cd XXxyYY
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ cd ..
+@MuskanSaxena6 ➜ /workspaces $ cd..
+bash: cd..: command not found
+@MuskanSaxena6 ➜ /workspaces $ cd ..
+@MuskanSaxena6 ➜ / $ ls
+bin                boot  etc  home  lib.usr-is-merged  lib64  mnt  proc  run   sbin.usr-is-merged  sys  usr  vscode
+bin.usr-is-merged  dev   go   lib   lib32              media  opt  root  sbin  srv                 tmp  var  workspaces
+@MuskanSaxena6 ➜ / $ which YY
+# NO ANSWER to above command, WHY?
+
+
+@MuskanSaxena6 ➜ / $ cd workspaces/ XXxyYY
+bash: cd: too many arguments
+@MuskanSaxena6 ➜ / $ cd workspaces/ XXxyYY/
+bash: cd: too many arguments
+@MuskanSaxena6 ➜ / $ cd workspaces/
+@MuskanSaxena6 ➜ /workspaces $ cd XXxyYY
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ whoami
+codespace
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ su YY
+Password: 
+$ whoam
+sh: 1: whoam: Permission denied
+$ whoami
+YY
+$ which YY
+$ exit
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ which codespace
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ exit
+exit
+Script done. (SCRIPT is not helpful at all copy-paste is better.)
+
+
+#NOW I CAN SEE THE LOCATION OF THE NEW USER ADDED which is "YY".
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+messagebus:x:100:101::/nonexistent:/usr/sbin/nologin
+polkitd:x:997:997:User for polkitd:/:/usr/sbin/nologin
+codespace:x:1000:1000::/home/codespace:/bin/bash
+sshd:x:101:65534::/run/sshd:/usr/sbin/nologin
+YY:x:1001:1002::/home/YY:/bin/sh
+@MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ 
