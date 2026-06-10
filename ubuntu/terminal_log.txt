@@ -128,3 +128,261 @@ Fast-forward
     4  git checkout main
     5  git pull origin main
     6  history
+
+
+
+
+/ShiLiu
+
+    git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Lrn
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@contri-o ➜ /workspaces/XXxyYY (main) $ git fetch origin
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 2), reused 3 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 2.08 KiB | 1.04 MiB/s, done.
+From https://github.com/contri-o/XXxyYY
+   c28b9d5..a536e6f  main       -> origin/main
+@contri-o ➜ /workspaces/XXxyYY (main) $ get checkout main
+bash: get: command not found
+
+
+git checkout main
+M       Lrn
+Already on 'main'
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+@contri-o ➜ /workspaces/XXxyYY (main) $ git pull origin main
+From https://github.com/contri-o/XXxyYY
+ * branch            main       -> FETCH_HEAD
+Updating c28b9d5..a536e6f
+error: Your local changes to the following files would be overwritten by merge:
+        Lrn
+Please commit your changes or stash them before you merge.
+Aborting
+@contri-o ➜ /workspaces/XXxyYY (main) $ pkill -9 git
+@contri-o ➜ /workspaces/XXxyYY (main) $ ^C
+@contri-o ➜ /workspaces/XXxyYY (main) $ rm -f .git/index.lock
+@contri-o ➜ /workspaces/XXxyYY (main) $ rm -f .git/HEAD.lock
+@contri-o ➜ /workspaces/XXxyYY (main) $ rm -f .git/*.lock
+@contri-o ➜ /workspaces/XXxyYY (main) $ ls -la
+total 52
+
+
+ls -la
+total 52
+drwxrwxrwx+ 5 codespace root       4096 Jun  9 06:30 .
+drwxr-xrwx+ 5 codespace root       4096 May 29 10:34 ..
+drwxrwxrwx+ 8 codespace root       4096 Jun 10 06:26 .git
+drwxrwxrwx+ 2 codespace codespace  4096 Jun  2 06:59 .github
+-rw-rw-rw-  1 codespace root        350 May 29 10:33 .gitignore
+-rw-rw-rw-  1 codespace root       1070 May 29 10:33 LICENSE
+-rw-rw-rw-  1 codespace codespace 16656 Jun 10 05:35 Lrn
+-rw-rw-rw-  1 codespace root          8 May 29 10:33 README.md
+drwxrwxrwx+ 4 codespace codespace  4096 Jun  4 06:23 ubuntu
+@contri-o ➜ /workspaces/XXxyYY (main) $ gti status
+bash: gti: command not found
+@contri-o ➜ /workspaces/XXxyYY (main) $ git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 2 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+nothing to commit, working tree clean
+
+
+ git fetch orgin
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+@contri-o ➜ /workspaces/XXxyYY (main) $ git fetch origin
+@contri-o ➜ /workspaces/XXxyYY (main) $ git checkout main
+Already on 'main'
+Your branch and 'origin/main' have diverged,
+and have 1 and 2 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+@contri-o ➜ /workspaces/XXxyYY (main) $ git pull origin main
+From https://github.com/contri-o/XXxyYY
+ * branch            main       -> FETCH_HEAD
+ hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+@contri-o ➜ /workspaces/XXxyYY (main) $ git pull --rebase origin main
+@contri-o ➜ /workspaces/XXxyYY (main) $ git pull --rebase origin main
+From https://github.com/contri-o/XXxyYY
+ * branch            main       -> FETCH_HEAD
+Auto-merging Lrn
+CONFLICT (content): Merge conflict in Lrn
+error: could not apply c62606f... shutdown not possible, abort gil pull as , merging from contri to owner still remain
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply c62606f... # shutdown not possible, abort gil pull as , merging from contri to owner still remain
+
+
+
+
+
+QUES:
+how to stop current pull started from source control, and in the graoph it's showing outugoing changes , should i stop this why and how?
+Why is it taking so long?
+ANS:
+
+Yes, you should stop the stuck git pull — it's safe in most cases and better than leaving it hanging.
+Why it's taking so long (common reasons in Codespaces):
+
+-Large repository or many commits/files being downloaded.
+-Slow network connection (Codespaces runs in the cloud).
+-Git is trying to merge changes and got stuck (especially if there are conflicts).
+-Lock files from a previous interrupted operation.
+-VS Code's Git extension sometimes doesn't handle long operations gracefully.
+
+The outgoing changes in the graph are just showing your local unpushed commits — this is normal and unrelated to the pull itself.
+How to stop the current pull
+1. Quickest way (Recommended)
+ Open the integrated Terminal in VS Code (Ctrl + ``  ``) and run:
+ Bash# Kill any hanging git process
+ pkill -9 git
+
+ # Or more specifically:
+ ps aux | grep git
+ # Then kill the relevant PID: kill -9 <PID>
+2. Clean up Git lock files (very important)
+ Bashcd /workspace   # or wherever your repo is
+ rm -f .git/index.lock
+ rm -f .git/HEAD.lock
+ rm -f .git/*.lock
+
+
+ 
+
+
+
+QUES:
+ Why you need to stop the hanging git pull
+A git pull that is stuck (especially in GitHub Codespaces) can freeze your Source Control view, make VS Code sluggish, and prevent you from doing any other Git operations. It holds locks on your repository, so Git thinks "I'm still busy" even if it's not actually doing anything useful.
+
+ANS:
+Step-by-step Explanation
+1. Kill any hanging git process (pkill -9 git or kill -9 <PID>)
+Why do this?
+
+When you start a git pull, Git launches one or more processes in the background.
+Sometimes these processes get stuck (due to network issues, large data, merge problems, etc.) and don’t die automatically.
+pkill -9 git forcefully terminates all git-related processes.
+The -9 (SIGKILL) is a strong kill signal that tells the OS to stop the process immediately.
+
+This is the fastest way to stop the stuck operation.
+Note: It’s generally safe because Git operations are designed to be recoverable (especially after cleaning lock files).
+2. Delete Git lock files
+Bashrm -f .git/index.lock
+rm -f .git/HEAD.lock
+rm -f .git/*.lock
+              The * (star) in this command:
+              Bashrm -f .git/*.lock
+              is called a wildcard in Linux/Bash.
+              Simple Explanation:
+
+              * means "match anything" or "any characters".
+              So .git/*.lock means:
+              "Delete all files inside the .git folder that end with .lock"
+
+
+
+Why is this very important?
+Git uses lock files to prevent multiple Git operations from running at the same time (which could corrupt your repository).
+
+When you start a git pull, Git creates files like .git/index.lock.
+If the pull gets stuck or is killed, these lock files remain.
+Git then refuses to run any other commands (pull, push, commit, etc.) and shows errors like “Another git process is running” or simply hangs.
+
+Deleting these lock files tells Git: “The previous operation is dead, you can run new commands now.”
+
+
+
+
+
+
+QUES/ERROR:
+git pull origin main
+From https://github.com/contri-o/XXxyYY
+ * branch main -> FETCH_HEAD
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint: git config pull.rebase false # merge
+hint: git config pull.rebase true # rebase
+hint: git config pull.ff only # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.Got it! This is a new error (not related to the previous stuck pull).
+Why this error happens:
+Git now requires you to explicitly choose how to combine your local changes with the remote changes when your branches have diverged (you have commits locally that aren't on GitHub, and GitHub has commits that aren't on your computer).
+This is a safety feature introduced in newer Git versions.
+
+
+ANS:
+Best Solution (Recommended)
+Run this command:
+Bash
+git pull --rebase origin main
+Why --rebase is usually better:
+
+It replays your outgoing changes on top of the latest changes from GitHub.
+Keeps a cleaner, linear commit history.
+Avoids unnecessary "Merge commit" messages.
+
+
+
+
+UES/ERROR:
+$ git pull --rebase origin main
+From https://github.com/contri-o/XXxyYY
+ * branch main -> FETCH_HEAD
+Auto-merging Lrn
+CONFLICT (content): Merge conflict in Lrn
+error: could not apply c62606f... shutdown not possible, abort gil pull as , merging from contri to owner still remain
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply c62606f... # shutdown not possible, abort gil pull as , merging from contri to owner still remain
+
+
+
+RESOLVE:
+<<<< HEAD
+Your current changes / code
+=======
+Code from the remote (GitHub)
+>>>> c62606f... shutdown not possible...
+
+SAVE FILE.
